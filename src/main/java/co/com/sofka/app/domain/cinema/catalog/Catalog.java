@@ -8,7 +8,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import java.util.Set;
 
 public class Catalog extends AggregateEvent<CatalogId> {
-    protected FunctionId functionId;
+
     protected Set<Movie> movies;
 
     public Catalog(CatalogId id){

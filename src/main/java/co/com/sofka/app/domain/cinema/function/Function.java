@@ -13,10 +13,9 @@ public class Function extends AggregateEvent<FunctionId> {
     protected Room room;
     protected Set<Seat> seats;
 
-    public Function(FunctionId entityId, OpeningHour openingHour, Room room, Set<Seat> seats) {
+    public Function(FunctionId entityId, OpeningHour openingHour, Room room) {
         super(entityId);
         this.openingHour = openingHour;
         this.room = room;
-        this.seats = seats;
     }
 }
