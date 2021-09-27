@@ -29,4 +29,14 @@ public class Movie extends Entity<MovieId> {
     public Format getFormat() {
         return format;
     }
+
+    public void updateClasificationOfMovie(Clasification clasification){
+        this.clasification = clasification;
+    }
+    public void updateFormatOfMovie(Format format){
+        this.format = format;
+    }
+    public void updateLengthOfMovie(Length length){
+        this.length = length;
+    }
 }

@@ -1,8 +1,7 @@
 package co.com.sofka.app.domain.cinema.catalog;
 
-import co.com.sofka.app.domain.cinema.catalog.events.AddedMovie;
+import co.com.sofka.app.domain.cinema.catalog.events.*;
 import co.com.sofka.app.domain.cinema.catalog.entity.Movie;
-import co.com.sofka.app.domain.cinema.catalog.events.CreatedCatalog;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
@@ -23,6 +22,15 @@ public class CatalogChange extends EventChange {
                event.getLength(),
                event.getFormat()
             ));
+        });
+        apply((UpdatedClasificationOfMovie event) -> {
+
+        });
+        apply((UpdatedFormatOfMovie event) -> {
+
+        });
+        apply((UpdatedLengthOfMovie event) -> {
+
         });
     }
 }
