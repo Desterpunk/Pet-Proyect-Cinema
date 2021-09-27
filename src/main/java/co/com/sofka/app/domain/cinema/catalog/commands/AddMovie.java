@@ -1,19 +1,18 @@
-package co.com.sofka.app.domain.cinema.catalog.entity;
+package co.com.sofka.app.domain.cinema.catalog.commands;
 
 import co.com.sofka.app.domain.cinema.catalog.value.Clasification;
 import co.com.sofka.app.domain.cinema.catalog.value.Format;
 import co.com.sofka.app.domain.cinema.catalog.value.Length;
 import co.com.sofka.app.domain.cinema.catalog.value.MovieId;
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 
-public class CreatedMovie extends DomainEvent {
-    private MovieId movieId;
-    private Clasification clasification;
-    private Length length;
-    private Format format;
+public class AddMovie implements Command {
+    private final MovieId movieId;
+    private final Clasification clasification;
+    private final Length length;
+    private final Format format;
 
-    public CreatedMovie(MovieId movieId, Clasification clasification, Length length, Format format){
-        super("cinema.catalog.createdmovie");
+    public AddMovie(MovieId movieId, Clasification clasification, Length length, Format format){
         this.movieId = movieId;
         this.clasification = clasification;
         this.length = length;

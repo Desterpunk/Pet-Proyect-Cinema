@@ -1,10 +1,9 @@
 package co.com.sofka.app.domain.cinema.catalog;
 
-import co.com.sofka.app.domain.cinema.catalog.entity.CreatedMovie;
+import co.com.sofka.app.domain.cinema.catalog.events.AddedMovie;
 import co.com.sofka.app.domain.cinema.catalog.entity.Movie;
 import co.com.sofka.app.domain.cinema.catalog.events.CreatedCatalog;
 import co.com.sofka.app.domain.cinema.catalog.value.*;
-import co.com.sofka.app.domain.cinema.function.value.FunctionId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -32,11 +31,19 @@ public class Catalog extends AggregateEvent<CatalogId> {
         return catalog;
     }
 
-    public void createMovie(MovieId movieId, Clasification clasification, Length length, Format format){
+    //events
+    public void addMovie(MovieId movieId, Clasification clasification, Length length, Format format){
         Objects.requireNonNull(movieId);
         Objects.requireNonNull(clasification);
         Objects.requireNonNull(length);
         Objects.requireNonNull(format);
-        appendChange(new CreatedMovie(movieId, clasification, length, format));
+        appendChange(new AddedMovie(movieId, clasification, length, format));
+    }
+    public void updateLengthOfMovie(MovieId movieId, Length length){
+        Objects.requireNonNull(movieId);
+        Objects.requireNonNull(length);
+    }
+    public Set<Movie> getMovies() {
+        return movies;
     }
 }
